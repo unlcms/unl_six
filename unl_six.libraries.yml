@@ -1,0 +1,42 @@
+global-styling:
+  version: VERSION
+  css:
+    component:
+      css/components/dialog.css: {}
+      css/components/form.css: {}
+      css/components/node-preview.css: {}
+      css/components/views.css: {}
+    theme:
+      css/menu-block.css: {}
+      css/style.css: {}
+
+amd:
+  version: VERSION
+  js:
+    js/amd-disable.js: { weight: -999 }
+  dependencies:
+    - unl_six/idm
+    - unl_six/messages
+
+idm:
+  version: VERSION
+  js:
+    js/idm.js: {}
+  dependencies:
+    - core/drupalSettings
+
+messages:
+  version: VERSION
+  js:
+    js/messages.js: {}
+
+dcf-tabledrag:
+  version: VERSION
+  js:
+    js/dcf-tabledrag.js: { weight: -1 }
+
+layout_builder:
+  version: VERSION
+  css:
+    theme:
+      css/layout-builder.css: {}

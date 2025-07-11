@@ -1,0 +1,8 @@
+Based on the 6.0 version of the UNLedu Web Framework at https://wdn.unl.edu/
+
+Requirements:
+  - The 'wdn' directory from the UNLedu Web Framework project (https://github.com/unl/wdntemplates) containing template dependents (the CSS and JS) needs to be located (sym-link/shortcut is o.k.) at the root of the Drupal install.
+
+Assumptions:
+  - Assumes that the CAS module (https://www.drupal.org/project/cas/) is being used with /caslogin as the login link.
+

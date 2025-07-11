@@ -1,0 +1,15 @@
+{
+  "name": "unlcms/unl_six",
+  "description": "UNLedu Framework 6.x theme.",
+  "type": "drupal-theme",
+  "authors": [
+    {
+      "name": "Eric Rasmussen (ericras)",
+      "homepage": "https://www.drupal.org/u/ericras",
+      "role": "Maintainer"
+    }
+  ],
+  "require": {
+    "drupal/core": "^10 || ^11"
+  }
+}
