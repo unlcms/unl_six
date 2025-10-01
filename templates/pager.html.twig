@@ -33,7 +33,7 @@
 {% if items %}
   <nav class="dcf-pagination dcf-mt-6 pager" role="navigation" aria-labelledby="{{ heading_id }}">
     <h4 id="{{ heading_id }}" class="visually-hidden">{{ 'Pagination'|t }}</h4>
-    <ol class="pager__items js-pager__items dcf-list-bare dcf-list-inline">
+    <ol role="list"  class="pager__items js-pager__items dcf-list-inline">
       {# Print first item if we are not on the first page.#}
       {% if items.first %}
         <li class="pager__item pager__item--first">
