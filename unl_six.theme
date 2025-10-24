@@ -77,6 +77,10 @@ function unl_six_preprocess_html(&$variables) {
   if ($nid = \Drupal::routeMatch()->getRawParameter('node')) {
     $variables['attributes']['class'][] = 'page-node-' . $nid;
   }
+
+  // Make the user's name available in JS for use with UNL Login widget in idm.js.
+  $account = \Drupal::currentUser();
+  $variables['#attached']['drupalSettings']['user']['name'] = $account->getAccountName();
 }
 
 /**
