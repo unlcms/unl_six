@@ -16,23 +16,6 @@
 }
 
 /**
- * Fixes admin toolbar positioning during js load (fixes page width)
- * caused by #wdn_wrapper {overflow:hidden}
- */
-#toolbar-bar::after {
-    clear: left;
-    content: ' ';
-    display: block;
-}
-/**
- * Fixes admin toolbar Drupal logo
- */
-#toolbar-administration *::after,
-#toolbar-administration *::before {
-    -webkit-box-sizing: unset;
-    box-sizing: unset;
-}
-/**
  * Fixes admin toolbar margin
  */
 .toolbar-menu li {
@@ -43,6 +26,11 @@
  */
 .toolbar-oriented .toolbar-bar {
     z-index: 1000;
+}
+
+/* Fixes padding on the main navigation coming from general ul style */
+.dcf-nav-local ul {
+    padding-left: 0;
 }
 
 /* #region Fixes non-responsive width issue on Webforms */
@@ -71,4 +59,3 @@ div.webform-name div.webform-flexbox {
     margin-bottom: unset;
   }
 } /* #endregion */
-  
