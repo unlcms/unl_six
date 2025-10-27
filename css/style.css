@@ -59,3 +59,9 @@ div.webform-name div.webform-flexbox {
     margin-bottom: unset;
   }
 } /* #endregion */
+
+/* #region Fix the inability to put the role="list" attribute on the Related Links which are edited in a WYSIWYG */
+.dcf-footer-group ul {
+    list-style: none;
+    padding: 0;
+} /* #endregion */
