@@ -25,11 +25,6 @@ idm:
   dependencies:
     - core/drupalSettings
 
-messages:
-  version: VERSION
-  js:
-    js/messages.js: {}
-
 dcf-tabledrag:
   version: VERSION
   js:

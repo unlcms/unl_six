@@ -1,34 +1,30 @@
-{% block messages %}
-{% if message_list %} {{ attach_library('unl_six/messages') }} {% endif %}
+<div data-drupal-messages>
 {% for type, messages in message_list %}
-  <div role="contentinfo" aria-label="{{ status_headings[type] }}"{{ attributes|without('role', 'aria-label') }}>
-    {% if type == 'error' %}
-      <div class="wdn_notice overlay-header negate">
-    {% elseif type == 'status' %}
-      <div class="wdn_notice overlay-header affirm">
-    {% elseif type == 'warning' %}
-      <div class="wdn_notice overlay-header alert">
+  {% if type == 'error' %}
+    {% set severity = 'danger' %}
+  {% elseif type == 'status' %}
+    {% set severity = 'success' %}
+  {% elseif type == 'warning' %}
+    {% set severity = 'warning' %}
+  {% else %}
+    {# This does not actually exist. Drupal only generates the three above. #}
+    {% set severity = 'info' %}
+  {% endif %}
+  <div {{ attributes.addClass(['dcf-notice', 'dcf-notice-' ~ severity]) }} hidden data-overlay="dcf-header">
+    {% if status_headings[type] %}
+      <h2 class="visually-hidden">{{ status_headings[type] }}</h2>
+    {% endif %}
+    <div>
+    {% if messages|length > 1 %}
+      <ul>
+        {% for message in messages %}
+          <li>{{ message }}</li>
+        {% endfor %}
+      </ul>
     {% else %}
-      <div class="wdn_notice overlay-header">
-      {% endif %}
-      <div class="close">
-        <a href="#" title="Close this notice">Close this notice</a>
-      </div>
-      <div class="message">
-        {% if status_headings[type] %}
-          <p class="title">{{ status_headings[type] }}</p>
-        {% endif %}
-        {% if messages|length > 1 %}
-          <ul>
-            {% for message in messages %}
-              <li>{{ message }}</li>
-            {% endfor %}
-          </ul>
-        {% else %}
-          {{ messages|first }}
-        {% endif %}
-      </div>
+      {{ messages|first }}
+    {% endif %}
     </div>
   </div>
 {% endfor %}
-{% endblock messages %}
+</div>
