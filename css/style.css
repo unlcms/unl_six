@@ -6,11 +6,13 @@
 
 
 
-/* The normal relative positioning of .contextual-region causes the page title to 
+/* The normal relative positioning of .contextual-region causes the breadcrumbs and page title to
    bleed through the red bar menu throughout the menu animation. */
+.dcf-breadcrumbs-wrapper.contextual-region,
 #dcf-page-title .contextual-region {
     position: static;
 }
+.dcf-breadcrumbs-wrapper.contextual-region:hover,
 #dcf-page-title .contextual-region:hover {
     position: relative;
 }
