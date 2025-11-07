@@ -4,6 +4,19 @@
  * that need to be made for WDN styles to work with CMS DOM structure.
  */
 
+
+
+/* The normal relative positioning of .contextual-region causes the breadcrumbs and page title to
+   bleed through the red bar menu throughout the menu animation. */
+.dcf-breadcrumbs-wrapper.contextual-region,
+#dcf-page-title .contextual-region {
+    position: static;
+}
+.dcf-breadcrumbs-wrapper.contextual-region:hover,
+#dcf-page-title .contextual-region:hover {
+    position: relative;
+}
+
 /* The exclude_node_title module empties the h1 text but leaves the empty element
    See: https://www.drupal.org/node/2624734 */
 #pagetitle h1:empty {
