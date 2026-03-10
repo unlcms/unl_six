@@ -83,6 +83,6 @@
   {{ page.leftcollinks }}
   <!-- InstanceEndEditable -->
   {% include wdn.directory ~ "/includes/global/footer-global-2.html" %}
-  {% include wdn.directory ~ "/includes/global/footer-global-3-std.html" %}
+  {% if big_footer %}{% include wdn.directory ~ "/includes/global/footer-global-3-big.html" %}{% else %}{% include wdn.directory ~ "/includes/global/footer-global-3-std.html" %}{% endif %}
   {% include wdn.directory ~ "/includes/global/noscript.html" %}
 </footer>

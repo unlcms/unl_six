@@ -87,6 +87,8 @@ function unl_six_preprocess_html(&$variables) {
  * Implements template_preprocess_page().
  */
 function unl_six_preprocess_page(&$variables) {
+  $variables['big_footer'] = theme_get_setting('big_footer');
+
   // Work around for Drupal core issue.
   // Create a boolean variable for each region in the format has_sidebar_second
   // Blocks employ lazy building.  This makes it difficult to determine from
@@ -295,6 +297,23 @@ function unl_six_form_alter(&$form, FormStateInterface &$form_state, $form_id) {
     $form['actions']['submit']['#attributes']['class'][] = 'dcf-btn';
     $form['actions']['submit']['#attributes']['class'][] = 'dcf-btn-secondary';
   }
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter() for system_theme_settings.
+ */
+function unl_six_form_system_theme_settings_alter(&$form, FormStateInterface $form_state) {
+  $form['unl_six_settings'] = [
+    '#type' => 'details',
+    '#title' => t('UNL Framework'),
+    '#open' => TRUE,
+  ];
+
+  $form['unl_six_settings']['big_footer'] = [
+    '#type' => 'checkbox',
+    '#title'=> t('Use the Herbie Big Footer'),
+    '#default_value' => theme_get_setting('big_footer'),
+  ];
 }
 
 /**
