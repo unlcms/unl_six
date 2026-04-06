@@ -18,9 +18,9 @@
     <!-- InstanceBeginEditable name="titlegraphic" -->
     {% if site_name %}
      {% if group_homepage_route %}
-       <a href="{{ path('entity.group.canonical', {'group': group_id })}}" class="dcf-txt-h5">{{ site_name }}</a>
+       <a href="{{ path('entity.group.canonical', {'group': group_id }) }}" class="{{ site_name_class }}">{{ site_name }}</a>
      {% else %}
-       <a href="{{ path('<front>') }}" class="dcf-txt-h5">{{ site_name }}</a>
+       <a href="{{ path('<front>') }}" class="{{ site_name_class }}">{{ site_name }}</a>
      {% endif %}    
    {% endif %}
     <!-- InstanceEndEditable -->
