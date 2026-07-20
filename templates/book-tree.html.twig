@@ -45,10 +45,13 @@
               'dcf-d-block'
             ]
           %}
+          {{ item.prefix }}
           {{ link(item.title, item.url, {'class': classes}) }}
+          {{ item.infix }}
           {% if item.below %}
             {{ book_tree.book_links(item.below, attributes, menu_level + 1) }}
           {% endif %}
+          {{ item.suffix }}
         </li>
       {% endif %}
     {% endfor %}

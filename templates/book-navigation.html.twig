@@ -1,21 +1,25 @@
+{{ attach_library('book/book.styling') }}
+{% set attributes = attributes.addClass('book-traversal__item') %}
 {% if tree or has_links %}
   <nav id="book-navigation-{{ book_id }}" class="book-navigation" role="navigation" aria-labelledby="book-label-{{ book_id }}">
     {{ tree }}
+    <p></p>
     {% if has_links %}
+      <hr />
       <h2 class="visually-hidden" id="book-label-{{ book_id }}">{{ 'Book traversal links for'|t }} {{ book_title }}</h2>
-      <ul class="book-pager unl-frame-quad unl-bg-lighter-gray dcf-p-4 dcf-mt-8 dcf-mb-8 dcf-txt-xs unl-font-sans" role="list">
+      <ul class="book-traversal__list unl-frame-quad unl-bg-lighter-gray dcf-p-4 dcf-mt-8 dcf-mb-8 dcf-txt-xs unl-font-sans" role="list">
         {% if prev_url %}
-          <li class="dcf-mb-0 book-pager__item book-pager__item--previous">
+          <li {{ attributes }}>
             <a href="{{ prev_url }}" class="dcf-txt-decor-hover" rel="prev" title="{{ 'Go to previous page'|t }}"><b>{{ '‹'|t }}</b> {{ prev_title }}</a>
           </li>
         {% endif %}
         {% if parent_url %}
-          <li class="dcf-mb-0 book-pager__item book-pager__item--center">
+          <li {{ attributes }}>
             <a href="{{ parent_url }}" class="dcf-txt-decor-hover" title="{{ 'Go to parent page'|t }}">{{ 'Up'|t }}</a>
           </li>
         {% endif %}
         {% if next_url %}
-          <li class="dcf-mb-0 book-pager__item book-pager__item--next">
+          <li {{ attributes }}>
             <a href="{{ next_url }}" class="dcf-txt-decor-hover" rel="next" title="{{ 'Go to next page'|t }}">{{ next_title }} <b>{{ '›'|t }}</b></a>
           </li>
         {% endif %}

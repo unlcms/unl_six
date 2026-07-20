@@ -10,24 +10,27 @@
   {% import _self as book_tree %}
   {% if items %}
     {% if menu_level == 0 %}
-      <ul{{ attributes.addClass('menu') }}>
+      <ul{{ attributes.addClass('menu').addClass('dcf-mt-6') }}>
     {% else %}
-      <ul class="menu">
+      <ul class="menu dcf-mt-6">
     {% endif %}
     {% for item in items %}
       {%
         set classes = [
-        'menu-item',
-        item.is_expanded ? 'menu-item--expanded',
-        item.is_collapsed ? 'menu-item--collapsed',
-        item.in_active_trail ? 'menu-item--active-trail',
-      ]
-    %}
+          'menu-item',
+          item.is_expanded ? 'menu-item--expanded',
+          item.is_collapsed ? 'menu-item--collapsed',
+          item.in_active_trail ? 'menu-item--active-trail',
+        ]
+      %}
     <li{{ item.attributes.addClass(classes) }}>
+      {{ item.prefix }}
       {{ link(item.title, item.url) }}
+      {{ item.infix }}
       {% if item.below %}
         {{ book_tree.book_links(item.below, attributes, menu_level + 1) }}
       {% endif %}
+      {{ item.suffix }}
     </li>
   {% endfor %}
   </ul>
