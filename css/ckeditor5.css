@@ -2,8 +2,8 @@
  * We can't do the following @import statements in CKEditor5 and just add in UNL's files
  * because it no longer runs in an iframe. The editor is now part of the page so if we
  * load UNL's CSS it will supersede the admin theme's styles on things outside CKEditor.
-   @import url('/wdn/templates_6.0/css/critical.css');
-   @import url('/wdn/templates_6.0/css/main.css');
+   @import url('/wdn/templates_6.1/css/critical.css');
+   @import url('/wdn/templates_6.1/css/main.css');
 
  * The following rules are copied from unl/wdntemplates with .ck-content prepended to
  * scope them just to the editor.
