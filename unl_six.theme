@@ -1,5 +1,6 @@
 <?php
 
+use Drupal\Core\Asset\AttachedAssetsInterface;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Render\Markup;
 use Drupal\block\Entity\Block;
@@ -77,10 +78,6 @@ function unl_six_preprocess_html(&$variables) {
   if ($nid = \Drupal::routeMatch()->getRawParameter('node')) {
     $variables['attributes']['class'][] = 'page-node-' . $nid;
   }
-
-  // Make the user's name available in JS for use with UNL Login widget in idm.js.
-  $account = \Drupal::currentUser();
-  $variables['#attached']['drupalSettings']['user']['name'] = $account->getAccountName();
 }
 
 /**
@@ -438,6 +435,15 @@ function unl_six_theme_suggestions_alter(array &$suggestions, array $variables, 
   if ($format == 'partial' && in_array($hook, ['html', 'page'])) {
     $suggestions[] = $hook . '__' . 'partial';
   }
+}
+
+/**
+ * Implements hook_js_settings_alter().
+ */
+function unl_six_js_settings_alter(&$settings, AttachedAssetsInterface $assets) {
+  // Make the user's name available in JS for use with UNL Login widget in idm.js.
+  $user = \Drupal::currentUser();
+  $settings['user']['name'] = $user->getAccountName();
 }
 
 function _unl_six_process_webform_multiple(&$element, FormStateInterface $form_state, &$complete_form) {
